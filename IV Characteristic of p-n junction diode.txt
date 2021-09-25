@@ -1,0 +1,13 @@
+clc
+clear all
+n = 1.65;    %Ideality factor
+Is = 220*10^-12;  % diode reverse saturated current
+q = 1.602*10^-19;    % electron charge
+K = 1.38*10^-23; %Boltzmann constant
+T = 300;    % Absolute temperature
+Vd = ((n.*K.*T)./q).*log((Is./Id)+1);
+Id = Is*(exp((q*Vd)./(1.65*K*T))-1);
+plot(Vd,Id)
+hold on
+ylabel('Id')
+xlabel('Vd')
